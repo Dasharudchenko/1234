@@ -1,0 +1,24 @@
+def function(z):
+    try:
+        int(z)
+        return True
+    except ValueError:
+        return False
+
+
+while True:
+    print('Введите высоту пирамиды от 1 до 23')
+    height = input()
+    if not function(height) == True :
+        continue
+    height = int(height)
+    if not (height<24) and (height>0):
+        continue
+    break
+
+a = height
+b = 0
+for i in range(height):
+    a = a - 1
+    b = b + 1
+    print(' ' * a, '#'* b, '#', sep = '')
