@@ -1,0 +1,42 @@
+def function(делимое, делитель):
+    if делимое % делитель == 0:
+        return True
+    else:
+        return False
+
+
+a = 50
+b = 10
+c = 5
+d = 1
+summ = 0
+sdacha = int(input("Введите сколько нужно выдать сдачи"))
+while True:
+    if sdacha == 0:
+        break
+    if function(sdacha, a) == True:
+        sdacha = sdacha - a
+        summ = summ + 1
+        continue
+    if sdacha == 0:
+        break
+    if function(sdacha, b) == True:
+        sdacha = sdacha - b
+        summ = summ + 1
+        continue
+    if sdacha == 0:
+        break
+    if function(sdacha, c) == True:
+        sdacha = sdacha - c
+        summ = summ + 1
+        continue
+    if sdacha == 0:
+        break
+    if function(sdacha, d) == True:
+        sdacha = sdacha - d
+        summ = summ + 1
+        continue
+    if sdacha == 0:
+        break
+
+print("Всего получится %s монет " % summ)
