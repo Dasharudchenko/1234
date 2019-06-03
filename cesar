@@ -1,0 +1,8 @@
+alpha = ' абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+key = int(input("введите ключ \n"))
+text = input("введите текст \n").strip()
+result = ''
+
+for c in text:
+    result += alpha[(alpha.index(c) + key) % len(alpha)]
+print('Result: ' + result )
