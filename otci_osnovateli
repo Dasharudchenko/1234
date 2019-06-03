@@ -1,0 +1,23 @@
+list = {'Alfred Vaino Aho' : 'AWC' ,
+'John Kemeny' : 'BASIC' ,
+'Paul Graham' : 'Arc' ,
+'Jean Ichbiah' : 'Ada' ,
+'Barbara Liskov' : 'CLU' ,
+'Larry Wall' : 'Perl' ,
+'Zuse Konrad' : 'Plankalkuk' ,
+'Peter Naur' : 'Algol' ,
+'Hyde Randall' : 'HLA' ,
+'Thomas Kurtz' : 'BASIC'
+}
+
+
+a= input('Для сортировки введите Sort, для поиска - Search\n')
+if a == 'Sort':
+    sortName = sorted(list.keys())
+    for element in sortName:
+        print(element, " - ", list[element])
+elif a == 'Search' :
+    spisok = input(' Введите имя: \n')
+    for name in list.keys() :
+        if name == spisok :
+            print(spisok, 'разработал язык', list[name])
