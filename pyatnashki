@@ -1,0 +1,77 @@
+while True:
+    try:
+        x = int(input("Задайте размер поля (введите 3 или 4): "))
+        if x == 3 or x == 4:
+            break
+        else:
+            print ("Ошибка.")
+    except (TypeError, ValueError):
+        print("Введи целое число.")
+
+massiv = []
+def init ():
+    if x == 4:
+        n = 15 #n - числа в пятнашках
+    else:
+        n = 8
+    for i in range(x): #i строчки
+        massiv.append([])
+        for j in range (x): #j столбцы
+            massiv [i].append (n)
+            n = n - 1
+    if x == 4:
+        massiv[3][1], massiv[3][2] = massiv[3][2],massiv[3][1]
+
+def draw():
+    for i in range (x):
+        for j in range(x):
+            if massiv[i][j] == 0:
+                print('_ ', " ", end = '')
+            elif massiv[i][j] >= 1 and massiv[i][j] <= 9:
+                print(massiv[i][j], '  ', end = '')
+            else:
+                print(massiv[i][j], ' ', end = '')
+        print('\n')
+init()
+draw()
+
+def move():
+    step = input('нажмите клавишу для перемещения: ')
+    for i in range(x):
+        for j in range(x):
+            if massiv[i][j] == 0:
+                break
+        if massiv[i][j] == 0:
+            break
+    if step == 'w':
+        if i > 0:
+            massiv[i][j],massiv[i-1][j] = massiv[i-1][j],massiv[i][j]
+    elif step == 's':
+        if i < x - 1:
+            massiv[i][j], massiv[i + 1][j] = massiv[i + 1][j], massiv[i][j]
+    elif step == 'd':
+        if j < x - 1:
+            massiv[i][j], massiv[i][j + 1] = massiv[i][j + 1], massiv[i][j]
+    elif step == 'a':
+        if j > 0:
+            massiv[i][j], massiv[i][j - 1] = massiv[i][j - 1], massiv[i][j]
+
+def won():
+    f = 1
+    n = 0
+    for i in range(x):
+        for j in range(x):
+            n = n + 1
+            if i == x - 1 and j == x - 1:
+                n = 0
+            if massiv[i][j] != n:
+                f = 0
+    if f == 1:
+        print('Вы выиграли.')
+    return f
+
+while True:
+    move()
+    draw()
+    if won() == 1:
+        break
